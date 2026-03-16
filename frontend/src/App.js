@@ -12,7 +12,8 @@ function App(){
    username,
    password
   })
-
+  
+  console.log(res.data)
   alert("Login success. Token: "+res.data.token)
  }
 
