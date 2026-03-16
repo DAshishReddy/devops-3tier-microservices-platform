@@ -13,7 +13,7 @@ function App(){
    password
   })
   
-  console.log(res.data)
+  //console.log(res.data)
   alert("Login success. Token: "+res.data.token)
  }
 
