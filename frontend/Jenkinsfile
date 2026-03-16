@@ -59,7 +59,7 @@ pipeline {
         stage('Update Image Tag in K8s Manifest') {
             steps {
                 sh '''
-                  sed -i "s|image: .*|image: '"${DOCKER_IMAGE}:${BUILD_NUMBER}"'|" kubernetes/frotend-deployment.yaml
+                  sed -i "s|image: .*|image: '"${DOCKER_IMAGE}:${BUILD_NUMBER}"'|" kubernetes/frontend-deployment.yaml
                 '''
             }
         }
@@ -73,7 +73,7 @@ pipeline {
                   git config user.email "ashishreddy.dulla@gmail.com"
                   git config user.name "DAshishReddy"
 
-                  git add k8s/manifests/deployment.yaml
+                  git add kubernetes/frontend-deployment.yaml
                   git commit -m "Update image tag to ${BUILD_NUMBER}"
                   
                   git push https://${GIT_CREDS_USR}:${GIT_CREDS_PSW}@${GIT_REPO} ${GIT_BRANCH}
